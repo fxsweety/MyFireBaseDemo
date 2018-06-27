@@ -26,6 +26,21 @@
                     <data android:host="https://demo.firebase.com/welcome" android:scheme="https"/>
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".RemoteConfigActivity">
+
+        </activity>
+
+        <activity
+        android:name=".RoboTestingActivity">
+
+    </activity>
+
+        <activity
+            android:name=".CrashlyticsActivity">
+
+        </activity>
     </application>
 
 </manifest>

@@ -9,19 +9,19 @@
     android:gravity="center"
     tools:context=".MainActivity">
 
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+    <!--<android.support.design.widget.AppBarLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:theme="@style/AppTheme.AppBarOverlay">-->
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="15dp"
-            android:background="@color/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+        <!--<android.support.v7.widget.Toolbar-->
+            <!--android:id="@+id/toolbar"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="15dp"-->
+            <!--android:background="@color/colorPrimary"-->
+            <!--app:popupTheme="@style/AppTheme.PopupOverlay" />-->
 
-    </android.support.design.widget.AppBarLayout>
+    <!--</android.support.design.widget.AppBarLayout>-->
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -37,28 +37,36 @@
     <Button
         android:id="@+id/button_remote_config"
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:gravity="center"
-        android:paddingBottom="15dp"
+        android:paddingBottom="20dp"
         android:text="Remote Config" />
 
 
     <Button
         android:id="@+id/button_dynamic_link"
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:gravity="center"
-        android:paddingBottom="15dp"
+        android:paddingBottom="20dp"
         android:text="Dynamic Links" />
 
 
     <Button
         android:id="@+id/button_robo_testing"
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:gravity="center"
-        android:paddingBottom="10dp"
+        android:paddingBottom="20dp"
         android:text="Robo Testing" />
+
+            <Button
+                android:id="@+id/button_crashlytics"
+                android:layout_height="wrap_content"
+                android:layout_width="150dp"
+                android:gravity="center"
+                android:paddingBottom="10dp"
+                android:text="Crashlytics" />
 
         </LinearLayout>
 
