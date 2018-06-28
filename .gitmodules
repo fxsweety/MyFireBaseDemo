@@ -1,0 +1,3 @@
+[submodule "app/src/main/java/com/demo/firebase/myapplication"]
+	path = app/src/main/java/com/demo/firebase/myapplication
+	url = git://github.com/fxsweety/MyFireBaseDemo.git
