@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_width="150dp"
         android:gravity="center"
-        android:paddingBottom="20dp"
+        android:layout_marginBottom="20dp"
         android:text="Remote Config" />
 
 
@@ -48,7 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_width="150dp"
         android:gravity="center"
-        android:paddingBottom="20dp"
+        android:layout_marginBottom="20dp"
         android:text="Dynamic Links" />
 
 
@@ -57,7 +57,7 @@
         android:layout_height="wrap_content"
         android:layout_width="150dp"
         android:gravity="center"
-        android:paddingBottom="20dp"
+        android:layout_marginBottom="20dp"
         android:text="Robo Testing" />
 
             <Button
@@ -65,7 +65,7 @@
                 android:layout_height="wrap_content"
                 android:layout_width="150dp"
                 android:gravity="center"
-                android:paddingBottom="10dp"
+                android:layout_marginBottom="10dp"
                 android:text="Crashlytics" />
 
         </LinearLayout>
