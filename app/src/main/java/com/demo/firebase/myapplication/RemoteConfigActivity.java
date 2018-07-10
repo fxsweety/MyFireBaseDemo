@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -30,5 +31,13 @@ public class RemoteConfigActivity extends AppCompatActivity {
         } else {
             imageView.setImageDrawable(getDrawable(R.drawable.tv_series_1));
         }
+
+        Button close = findViewById(R.id.close_button);
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 }

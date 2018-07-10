@@ -1,6 +1,7 @@
 package com.demo.firebase.myapplication;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
@@ -14,6 +15,8 @@ import android.widget.Toast;
 
 import com.crashlytics.android.Crashlytics;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings;
@@ -28,8 +31,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
+        checkForDynamicDeepLink();
         buttonRemoteConfig = findViewById(R.id.button_remote_config);
         View buttonDynamicLinks = findViewById(R.id.button_dynamic_link);
         View buttonCrashlytics = findViewById(R.id.button_crashlytics);
@@ -55,12 +57,35 @@ public class MainActivity extends AppCompatActivity {
 
         buttonCrashlytics.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-               // Crashlytics.getInstance().crash(); // Force a crash
-
                 Intent intent = new Intent(MainActivity.this, CrashlyticsActivity.class);
                 startActivity(intent);
             }
         });
+    }
+
+    private void checkForDynamicDeepLink() {
+        FirebaseDynamicLinks.getInstance()
+                            .getDynamicLink(getIntent())
+                            .addOnSuccessListener(this, new OnSuccessListener<PendingDynamicLinkData>() {
+                                @Override
+                                public void onSuccess(PendingDynamicLinkData pendingDynamicLinkData) {
+                                    // Getma deep link from result (may be null if no link is found)
+                                    Uri deepLink;
+                                    if (pendingDynamicLinkData != null) {
+                                        deepLink = pendingDynamicLinkData.getLink();
+                                        Intent intent = new Intent(MainActivity.this, DynamicLinkActivity.class);
+                                        intent.putExtra("deep_link", deepLink.toString());
+                                        startActivity(intent);
+                                        finish();
+                                    }
+                                }
+                            })
+                            .addOnFailureListener(this, new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                }
+                            });
+
     }
 
     private void fetchRemoteConfig() {

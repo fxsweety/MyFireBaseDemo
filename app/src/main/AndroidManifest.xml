@@ -41,6 +41,11 @@
             android:name=".CrashlyticsActivity">
 
         </activity>
+
+        <activity
+            android:name=".DynamicLinkActivity">
+
+        </activity>
     </application>
 
 </manifest>
