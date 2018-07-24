@@ -18,6 +18,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.dynamiclinks.FirebaseDynamicLinks;
+import com.google.firebase.dynamiclinks.PendingDynamicLinkData;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings;
 
@@ -61,22 +63,31 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        buttonDynamicLinks.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, DynamicLinkActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
+
+    // Dynamic Link
     private void checkForDynamicDeepLink() {
         FirebaseDynamicLinks.getInstance()
                             .getDynamicLink(getIntent())
                             .addOnSuccessListener(this, new OnSuccessListener<PendingDynamicLinkData>() {
                                 @Override
                                 public void onSuccess(PendingDynamicLinkData pendingDynamicLinkData) {
-                                    // Getma deep link from result (may be null if no link is found)
                                     Uri deepLink;
                                     if (pendingDynamicLinkData != null) {
                                         deepLink = pendingDynamicLinkData.getLink();
-                                        Intent intent = new Intent(MainActivity.this, DynamicLinkActivity.class);
-                                        intent.putExtra("deep_link", deepLink.toString());
-                                        startActivity(intent);
-                                        finish();
+                                        if(deepLink.toString().contains("discount")) {
+                                            Intent intent = new Intent(MainActivity.this, DynamicLinkActivity.class);
+                                            startActivity(intent);
+                                        }
                                     }
                                 }
                             })
@@ -88,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    // Remote Config
     private void fetchRemoteConfig() {
         long cacheExpiration = 3600; //one hour
         if (firebaseRemoteConfig.getInfo().getConfigSettings().isDeveloperModeEnabled()) {

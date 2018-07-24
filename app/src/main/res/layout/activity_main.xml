@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,30 +8,6 @@
     android:gravity="center"
     tools:context=".MainActivity">
 
-    <!--<android.support.design.widget.AppBarLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:theme="@style/AppTheme.AppBarOverlay">-->
-
-        <!--<android.support.v7.widget.Toolbar-->
-            <!--android:id="@+id/toolbar"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="15dp"-->
-            <!--android:background="@color/colorPrimary"-->
-            <!--app:popupTheme="@style/AppTheme.PopupOverlay" />-->
-
-    <!--</android.support.design.widget.AppBarLayout>-->
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="center">
 
     <Button
         android:id="@+id/button_remote_config"
@@ -68,14 +43,4 @@
                 android:layout_marginBottom="10dp"
                 android:text="Crashlytics" />
 
-        </LinearLayout>
-
-        <ProgressBar
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:visibility="gone"
-            android:layout_gravity="center"/>
-
-
-</FrameLayout>
 </LinearLayout>
