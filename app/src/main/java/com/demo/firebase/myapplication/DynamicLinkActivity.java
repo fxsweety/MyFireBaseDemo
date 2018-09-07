@@ -12,7 +12,7 @@ public class DynamicLinkActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dynamic_link);
-        Button closeButton = findViewById(R.id.close_button);
+        Button closeButton = findViewById(R.id.dynamic_close);
         closeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
