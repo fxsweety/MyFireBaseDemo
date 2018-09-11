@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
                     val deepLink: Uri
                     if (pendingDynamicLinkData != null) {
                         deepLink = pendingDynamicLinkData.link
-                        if (deepLink.toString().contains("discount")) {
+                        if (deepLink.toString().contains("movie")) {
                             val intent = Intent(this@MainActivity, DynamicLinkActivity::class.java)
                             startActivity(intent)
                         }

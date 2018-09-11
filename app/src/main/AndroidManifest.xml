@@ -33,6 +33,11 @@
         </activity>
 
         <activity
+            android:name=".DynamicLinkActivity">
+
+        </activity>
+
+        <activity
         android:name=".RoboTestingActivity">
 
     </activity>
@@ -42,10 +47,6 @@
 
         </activity>
 
-        <activity
-            android:name=".DynamicLinkActivity">
-
-        </activity>
     </application>
 
 </manifest>

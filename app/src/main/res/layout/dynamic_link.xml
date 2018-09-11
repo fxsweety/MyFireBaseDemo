@@ -9,14 +9,13 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Congrats, use code 1234 to get your 20% discount"
-        android:textSize= "30dp"
-        android:paddingBottom="20dp"/>
+        android:text="Guess the Movie"
+        android:textSize= "20dp" />
 
-    <Button
-        android:id="@+id/dynamic_close"
-        android:layout_height="50dp"
-        android:layout_width="120dp"
-        android:text="Close"/>
+    <ImageView
+        android:id="@+id/movie_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/movie" />
 
 </LinearLayout>
