@@ -8,7 +8,9 @@ import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.Button
 import android.widget.Toast
+import com.crashlytics.android.Crashlytics
 import com.google.firebase.dynamiclinks.FirebaseDynamicLinks
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig
 import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings
@@ -18,6 +20,7 @@ class MainActivity : AppCompatActivity() {
 
     private var firebaseRemoteConfig: FirebaseRemoteConfig? = null
     lateinit var buttonRemoteConfig: View
+    internal var buttonCrashlytics: Button? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         checkForDynamicDeepLink()
         buttonRemoteConfig = findViewById(R.id.button_remote_config)
         val buttonDynamicLinks = findViewById<View>(R.id.button_dynamic_link)
-        val buttonCrashlytics = findViewById<View>(R.id.button_crashlytics)
+       // val buttonCrashlytics = findViewById<View>(R.id.button_crashlytics)
         val buttonRoboTesting = findViewById<View>(R.id.button_robo_testing)
         buttonRemoteConfig.visibility = View.INVISIBLE
 
@@ -42,7 +45,17 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        buttonCrashlytics.setOnClickListener {
+        try {
+            buttonCrashlytics!!.setOnClickListener {
+                val intent = Intent(this@MainActivity, CrashlyticsActivity::class.java)
+                startActivity(intent)
+            }
+        }catch(ex:Exception) {
+            Crashlytics.logException(ex)
+            buttonCrashlytics = findViewById<Button>(R.id.button_crashlytics)
+
+        }
+        buttonCrashlytics!!.setOnClickListener {
             val intent = Intent(this@MainActivity, CrashlyticsActivity::class.java)
             startActivity(intent)
         }

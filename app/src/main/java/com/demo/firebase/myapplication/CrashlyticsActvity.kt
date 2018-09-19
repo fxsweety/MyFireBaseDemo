@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.Button
+import com.crashlytics.android.Crashlytics
 
 class CrashlyticsActivity : AppCompatActivity() {
 
@@ -15,6 +16,7 @@ class CrashlyticsActivity : AppCompatActivity() {
         bookTable = findViewById(R.id.booke_table);
         bookTable!!.setOnClickListener {
             // Book a Table
+            Crashlytics.log("BookTable button clicked")
             val intent = Intent(this@CrashlyticsActivity, BookTableActivity::class.java)
             startActivity(intent)
         }
